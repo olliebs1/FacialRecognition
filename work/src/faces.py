@@ -8,6 +8,9 @@ cap = cv2.VideoCapture(0)
 
 while True:
     ret, frame = cap.read()
+    grey = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    faces = face_cascade.detectMultiScale(grey, scaleFactor=1.5, minNeighbors=5)
+
 
     cv2.imshow('frame', frame)
     if cv2.waitKey(20) & 0xFF == ord('q'):
