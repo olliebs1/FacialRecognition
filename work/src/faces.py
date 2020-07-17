@@ -15,7 +15,7 @@ while True:
         print(x,y,w,h)
         roi_grey = grey[y:y+h, x:x+w]
         img_item = 'my-image.png'
-        cv2.imwrtie(img_item, roi_grey)
+        cv2.imwrite(img_item, roi_grey)
 
     cv2.imshow('frame', frame)
     if cv2.waitKey(20) & 0xFF == ord('q'):
