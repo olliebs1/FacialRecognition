@@ -23,7 +23,7 @@ while True:
         stroke = 2
         end_cord_x = x + w
         end_cord_y = y + h
-        cv2.rectangle(frame, (x, y), (end_cord_x, end_cord_y))
+        cv2.rectangle(frame, (x, y), (end_cord_x, end_cord_y), color, stroke)
 
     cv2.imshow('frame', frame)
     if cv2.waitKey(20) & 0xFF == ord('q'):
