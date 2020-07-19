@@ -2,6 +2,7 @@ import cv2
 import os
 import numpy as np
 from PIL import Image
+import pickle
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 image_dir = os.path.join(BASE_DIR, 'images')
@@ -27,7 +28,7 @@ for root, dirs, files in os.walk(image_dir):
             pil_image = Image.open(path).convert("L")
             image_array = np.array(pil_image, "uint8")
             
-            faces = face_cascade.detectMultiScale(image_array, scaleFactor=1.5, minNeighbour=5)
+            faces = face_cascade.detectMultiScale(image_array, scaleFactor=1.5, minNeighbors=5)
 
 
             for(x,y,w,h) in faces:
@@ -35,5 +36,5 @@ for root, dirs, files in os.walk(image_dir):
                 x_train.append(roi)
                 y_labels.append(id_)
 
-print(y_labels)
-print(x_train)
+
+
