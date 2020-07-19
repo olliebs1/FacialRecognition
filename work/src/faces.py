@@ -15,6 +15,9 @@ while True:
         print(x,y,w,h)
         roi_grey = grey[y:y+h, x:x+w]
         roi_colour = frame[y:y+h, x:x+w]
+
+        #recogniser
+
         img_item = 'my-image.png'
         cv2.imwrite(img_item, roi_grey)
 
@@ -23,7 +26,7 @@ while True:
         stroke = 2
         end_cord_x = x + w
         end_cord_y = y + h
-        cv2.rectangle(frame, (x, y), (end_cord_x, end_cord_y), color, stroke)
+        cv2.rectangle(frame, (x, y), (end_cord_x, end_cord_y), colour, stroke)
 
     cv2.imshow('frame', frame)
     if cv2.waitKey(20) & 0xFF == ord('q'):
