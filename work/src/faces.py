@@ -12,7 +12,7 @@ recogniser.read('trainer.yml')
 labels = {}
 with open('labels.pickle', 'rb') as f:
     original_labels = pickle.load(f)
-    labels = {v:k for k,v in labels.items()}
+    labels = {v:k for k,v in original_labels.items()}
 
 
 cap = cv2.VideoCapture(0)
