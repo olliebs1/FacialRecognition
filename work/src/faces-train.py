@@ -44,3 +44,4 @@ with open('labels.pickle', 'wb') as f:
 recogniser.train(x_train, np.array(y_labels))
 recogniser.save("trainer.yml")
 
+

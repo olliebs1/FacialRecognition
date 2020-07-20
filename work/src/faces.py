@@ -2,6 +2,8 @@ import numpy as np
 import cv2
 
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
+recogniser = cv2.face.LBPHFaceRecogizer_create()
+recogniser.read('trainer.yml')
 
 
 cap = cv2.VideoCapture(0)
@@ -17,7 +19,7 @@ while True:
         roi_colour = frame[y:y+h, x:x+w]
 
         #recogniser
-
+        
         img_item = 'my-image.png'
         cv2.imwrite(img_item, roi_grey)
 
