@@ -28,7 +28,7 @@ while True:
 
         #recogniser
         id_, conf = recogniser.predict(roi_grey)
-        if conf >= 45:
+        if conf >= 60:
             print(labels[id_])
             font = cv2.FONT_HERSHEY_SIMPLEX
             name = labels[id_]
