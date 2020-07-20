@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
-recogniser = cv2.face.LBPHFaceRecogizer_create()
+recogniser = cv2.face.LBPHFaceRecognizer_create()
 recogniser.read('trainer.yml')
 
 
@@ -14,12 +14,13 @@ while True:
     faces = face_cascade.detectMultiScale(grey, scaleFactor=1.5, minNeighbors=5)
 
     for(x, y, w, h) in faces:
-        print(x,y,w,h)
         roi_grey = grey[y:y+h, x:x+w]
         roi_colour = frame[y:y+h, x:x+w]
 
         #recogniser
         id_, conf = recogniser.predict(roi_grey)
+        if conf >= 45 and conf <= 85:
+            print(id_)
         
         img_item = 'my-image.png'
         cv2.imwrite(img_item, roi_grey)
