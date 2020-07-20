@@ -19,6 +19,7 @@ while True:
         roi_colour = frame[y:y+h, x:x+w]
 
         #recogniser
+        id_, conf = recogniser.predict(roi_grey)
         
         img_item = 'my-image.png'
         cv2.imwrite(img_item, roi_grey)
