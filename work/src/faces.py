@@ -26,7 +26,11 @@ while True:
         #recogniser
         id_, conf = recogniser.predict(roi_grey)
         if conf >= 45 and conf <= 85:
-            print(id_)
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            name = labels[id_]
+            colour = (255,255,255)
+            stroke = 2
+            cv2.putText(frame, name, (x,y), font, 1, colour, stroke, cv2.LINE_AA)
         
         img_item = 'my-image.png'
         cv2.imwrite(img_item, roi_grey)
