@@ -1,9 +1,14 @@
 import numpy as np
 import cv2
+import pickle
 
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
 recogniser = cv2.face.LBPHFaceRecognizer_create()
 recogniser.read('trainer.yml')
+
+labels = {}
+with open('labels.pickle', 'rb') as f:
+    labels = pickle.load(f)
 
 
 cap = cv2.VideoCapture(0)
